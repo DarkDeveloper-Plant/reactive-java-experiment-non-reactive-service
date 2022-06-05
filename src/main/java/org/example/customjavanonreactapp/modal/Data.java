@@ -1,10 +1,12 @@
 package org.example.customjavanonreactapp.modal;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Builder
 @Getter
@@ -16,8 +18,12 @@ import javax.persistence.Id;
 public class Data {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
     private Long requestCameTime;
     private String data;
 

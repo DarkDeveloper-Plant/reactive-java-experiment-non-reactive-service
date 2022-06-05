@@ -14,7 +14,7 @@ public class CustomService {
 
     public Data getData() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
             return dataRepo.findAll().get(0);
         } catch (InterruptedException e) {
             throw new RuntimeException("error happened");
@@ -23,7 +23,7 @@ public class CustomService {
 
     public Data saveData(DataDto dto) {
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
