@@ -1,11 +1,24 @@
 package org.example.customjavanonreactapp.modal;
 
-import lombok.Builder;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Builder
-@lombok.Data
+@Getter
+@Setter
+@ToString
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Data {
-    private Long threadId;
+
+    @Id
+    @GeneratedValue
+    private Long id;
     private Long requestCameTime;
     private String data;
+
 }
