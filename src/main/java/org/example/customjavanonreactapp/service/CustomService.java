@@ -14,16 +14,18 @@ public class CustomService {
 
     public Data getData() {
         try {
-            Thread.sleep(100);
-            return dataRepo.findAll().get(0);
-        } catch (InterruptedException e) {
+            Thread.sleep(2000);
+        var data = dataRepo.findFirstByOrderByRequestCameTimeAsc();
+        return data.orElse(null);
+                } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("error happened");
         }
     }
 
     public Data saveData(DataDto dto) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
